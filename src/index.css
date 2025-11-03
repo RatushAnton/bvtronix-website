@@ -1,4 +1,112 @@
 @import "tailwindcss";
 
+/* Center + max width wrapper (1200px) */
+.wrap {
+  /* full width row, centered content, side padding */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 1200px; /* tweak to 1280/1400 if you want wider */
+}
+
 /* Global tweaks */
 html, body, #root { height: 100%; }
+
+
+/* --- Customers marquee --- */
+@keyframes marquee-x {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* one full track width */
+}
+
+/* Static class name so Tailwind builds it */
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 3rem;                 /* matches gap-12 */
+  width: max-content;
+  animation: marquee-x 40s linear infinite;
+}
+
+/* Pause the track when hovering the whole marquee area */
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* Reduce motion users: stop animation */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none !important; }
+}
+
+/* Subtle edge fade (keeps logos crisp) */
+.mask-fade-x {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
+}
+
+
+/* ------------ Background Helpers -------------- */
+/* Brand Colors */
+:root {
+  --bv-blue: #0b4a90;
+  --bv-yellow: #f4cf28;
+}
+
+/* Generic overlay utilities (usable with any bg image) */
+.bg-overlay-dark { position: relative; }
+.bg-overlay-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.40), rgba(0,0,0,.20));
+}
+.bg-overlay-blue::before {
+  background: linear-gradient(180deg, rgba(11,74,144,.35), rgba(11,74,144,.15));
+}
+
+/* Subtle blueprint corner watermark */
+.bg-watermark-blueprint {
+  position: relative;
+}
+.bg-watermark-blueprint::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  bottom: -80px;
+  width: 420px;
+  height: 420px;
+  background-image: url("/bg/blueprint-texture.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: .08; 
+  filter: grayscale(1);
+  pointer-events: none; 
+  z-index: 0;
+}
+
+/* Image presets (swap files anytime) */
+.bg-hero-machinery   { background-image: url("/bg/hero-machinery.jpg"); }
+.bg-hero-blueprint   { background-image: url("/bg/hero-blueprint.jpg"); }
+.bg-texture-brushed  { background-image: url("/bg/texture-brushed.jpg"); }
+.bg-texture-blueprint{ background-image: url("/bg/texture-blueprint.jpg"); }
+.bg-section-customers{ background-image: url("/bg/section-customers.jpg"); }
+.bg-footer-cad       { background-image: url("/bg/footer-cad.jpg"); }
+
+/* Shared bg rendering */
+.bg-cover-center { background-size: cover; background-position: center; }
+.bg-fixed-smart  { background-attachment: fixed; }
+@media (prefers-reduced-motion: reduce) {
+  .bg-fixed-smart { background-attachment: scroll; }
+}
+
+/* Soft edge vignette for hero */
+.hero-vignette { position: relative; }
+.hero-vignette::after {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(120% 100% at 50% 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.75) 100%);
+  mix-blend-mode: lighten;
+}
+
+/* Keep content above overlays */
+.section-content { position: relative; z-index: 1; }
