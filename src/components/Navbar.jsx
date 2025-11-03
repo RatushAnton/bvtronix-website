@@ -1,15 +1,18 @@
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next';
+import LangSwitcher from './LangSwitcher.jsx';
 import BrandLogo from "./BrandLogo.jsx";
 
 const nav = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/', key:'nav.home' },
+  { to: '/about', key: 'nav.about' },
+  { to: '/projects', key: 'nav.projects' },
+  { to: '/contact', key: 'nav.contact' },
 ]
 
 export default function Navbar() {
+  const { t } = useTranslation()
   const [open, setOpen] = useState(false)
 
   // Base style shared by all top nav links (desktop)
@@ -46,7 +49,7 @@ export default function Navbar() {
                 ].join(' ')
               }
             >
-              {i.label}
+              {t(i.key)}
             </NavLink>
           ))}
 
@@ -57,8 +60,9 @@ export default function Navbar() {
                        bg-black text-white transition-colors duration-200 hover:bg-slate-800
                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
           >
-            Get Quote
+            {t('nav.get_quote')}
           </a>
+          <LangSwitcher />
         </nav>
       </div>
 
@@ -80,7 +84,7 @@ export default function Navbar() {
                   ].join(' ')
                 }
               >
-                {i.label}
+                {t(i.key)}
               </NavLink>
             ))}
             <a
@@ -89,8 +93,9 @@ export default function Navbar() {
               className="px-3 py-2 rounded-md bg-black text-white text-sm text-center
                          transition-colors duration-200 hover:bg-slate-800"
             >
-              Get Quote
+              {t('nav.get_quote')}
             </a>
+            <LangSwitcher />
           </div>
         </div>
       )}

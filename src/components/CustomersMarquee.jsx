@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { useTranslation } from 'react-i18next'
 /** Prefer SVGs; keep transparent background for PNG/JPG */
 const logos = [
   { name: 'Applied Materials', src: '/logos/Applied-Materials.svg', alt: 'Applied Materials' },
@@ -45,12 +45,13 @@ function MarqueeRow({ items, duration = 40 }) {
 }
 
 export default function CustomersMarquee() {
+  const { t } = useTranslation()
   if (!logos.length) return null
   return (
     <section className="wrap py-16">
-      <h2 className="text-2xl md:text-3xl font-bold text-center">Our Customers</h2>
+      <h2 className="text-2xl md:text-3xl font-bold text-center">{t('customers.heading')}</h2>
       <p className="text-center text-slate-600 mt-2 text-sm">
-        We partner with leading manufacturers and innovators.
+        {t('customers.subtitle')}
       </p>
 
       <div className="mt-8">

@@ -1,0 +1,93 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "contact": "Contact",
+        "get_quote": "Get Quote"
+    },
+    "home": {
+        "hero_title_1": "BVTronix Ltd.",
+        "hero_title_2": "Mechanical Design and Manufacturing Solutions",
+        "hero_sub": "Retrofits, automation and custom modifications for your production machines — delivered with precision and reliability.",
+        "cta_primary": "Request a Consultation",
+        "cta_secondary": "See Projects",
+        "what_we_do": "What we do"
+    },
+    "services": {
+        "items": {
+            "project_management": {
+                "title": "Project Management",
+                "desc": "From idea to delivery — we manage every stage of your engineering project, keeping timelines, quality, and communication on track."
+            },
+            "design_and_development": {
+                "title": "Design and Devvelopment",
+                "desc": "We turn concepts into reality with efficient, high-quality product design tailored to your business and market."
+            },
+            "product_engineering": {
+                "title": "Product Engineering",
+                "desc": "End-to-end engineering for mechanics, electronics, and plastics — planned for reliability and performance."
+            },
+            "production_support": {
+                "title": "Production Support",
+                "desc": "Smooth handoff from prototype to full production with trials, QA, and access to advanced manufacturing."
+            },
+            "procurement_logistics": {
+                "title": "Procurement & Logistics",
+                "desc": "Smart sourcing, supplier management, and streamlined logistics to keep costs low and progress steady."
+            },
+            "quality_management": {
+                "title": "Quality Management",
+                "desc": "ISO-driven processes and expert oversight to ensure every deliverable meets global quality standards."
+            }
+        }
+    },
+    "customers": {
+        "heading": "Our Customers",
+        "subtitle": "We partner with leading manufacturers and innovators."
+    },
+    "about": {
+        "title": "About BVTronix",
+        "paragraph_1": "BVTronix Ltd. delivers design and development solutions for machinery and mechanical products. We help manufacturers modernize production lines, upgrade legacy equipment, and bring new products to market—safely, efficiently, and on schedule.",
+        "paragraph_2": "The company was founded by Boris Gorodnitsky, a Certified Quality Engineer (CQE) with a degree in Industrial & Mechanical Engineering and over two decades of hands-on experience in project management, engineering, and manufacturing.",
+        "paragraph_3": "Our capabilities span the full lifecycle: concept and engineering design, prototyping, manufacturing and assembly, quality management, procurement, and logistics. We also collaborate with a trusted network of subcontractors and subject-matter experts to scale quickly when needed.",
+        "paragraph_4": "We’re committed to a fast, flexible process and uncompromising quality—so you get reliable results with clear communication at every step.",
+        "our_customers": "Our Customers",
+        "years_heading": "Years in the Industry",
+        "certificate_placeholder": "Certificate placeholder",
+        "since": "since"
+    },
+    "projects": {
+        "title": "Projects",
+        "subtitle": "A selection of retrofits, upgrades, and custom mechanisms we've delivered."
+    },
+    "contact": {
+        "title": "Contact Us",
+        "question": "Need to upgrade or modify a machine?",
+        "subtitle": "Tell us about your machine and your goal - we'll propose a practical, reliable solution.",
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "phone": "Phone",
+            "message": "Message",
+            "send": "Send Message"
+        },
+        "messages": {
+            "success": "Thanks! Your message has been sent.",
+            "error": "Something went wrong. Please try again."
+        },
+        "company":{
+            "office": "Office Address",
+            "factory": "Factory Address",
+            "phone": "Phone",
+            "fax": "Fax",
+            "email": "Email"
+        }
+    },
+    "footer": {
+        "tagline": "Machine Design and Manufacturing Solutions",
+        "rights": "All rights reserved.",
+        "quick_links": "Quick Links"
+    }
+
+}

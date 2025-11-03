@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react"
+import { useTranslation } from 'react-i18next'
 
 export default function About() {
+  const { t } = useTranslation()
   // === Config ===
   const startYear = 2000 // <-- set your founding year here
   const customers = [
@@ -47,29 +49,22 @@ export default function About() {
   return (
     <section className="wrap py-14">
       {/* Title */}
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-10">About BVTronix</h1>
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-10">{t('about.title')}</h1>
 
       <div className="grid md:grid-cols-3 gap-10 items-start">
         {/* Left: Company summary */}
         <div className="md:col-span-2 space-y-5 text-slate-700 leading-relaxed">
           <p>
-            BVTronix Ltd. delivers design and development solutions for machinery and mechanical products.
-            We help manufacturers modernize production lines, upgrade legacy equipment, and bring new
-            products to market—safely, efficiently, and on schedule.
+            {t('about.paragraph_1')}
           </p>
           <p>
-            The company was founded by Boris Gorodnitsky, a Certified Quality Engineer (CQE) with a degree
-            in Industrial & Mechanical Engineering and over two decades of hands-on experience in project
-            management, engineering, and manufacturing.
+            {t('about.paragraph_2')}
           </p>
           <p>
-            Our capabilities span the full lifecycle: concept and engineering design, prototyping,
-            manufacturing and assembly, quality management, procurement, and logistics. We also collaborate
-            with a trusted network of subcontractors and subject-matter experts to scale quickly when needed.
+            {t('about.paragraph_3')}
           </p>
           <p>
-            We’re committed to a fast, flexible process and uncompromising quality—so you get reliable
-            results with clear communication at every step.
+            {t('about.paragraph_4')}
           </p>
         </div>
 
@@ -77,7 +72,7 @@ export default function About() {
         <aside className="space-y-8">
           {/* Customers */}
           <div>
-            <h2 className="text-xl font-bold mb-4 text-center md:text-left">Our Customers</h2>
+            <h2 className="text-xl font-bold mb-4 text-center md:text-left">{t('customers.heading')}</h2>
 
             {/* Slider viewport */}
             <div
@@ -132,14 +127,14 @@ export default function About() {
           {/* Years in the industry */}
           <div className="text-center">
             <div className="text-5xl font-extrabold text-slate-800">{years}</div>
-            <div className="text-lg font-semibold text-slate-700">Years in the Industry</div>
-            <div className="text-xs text-slate-500 mt-1">Since {startYear}</div>
+            <div className="text-lg font-semibold text-slate-700">{t('about.years_heading')}</div>
+            <div className="text-xs text-slate-500 mt-1">{t('about.since')} {startYear}</div>
           </div>
 
           {/* Certificate placeholder */}
           <div className="rounded-lg border p-2 bg-white">
             <div className="aspect-[4/3] w-full bg-slate-100 grid place-items-center rounded">
-              <span className="text-slate-500 text-sm">Certificate Placeholder</span>
+              <span className="text-slate-500 text-sm">{t('about.certificate_placeholder')}</span>
             </div>
           </div>
         </aside>
