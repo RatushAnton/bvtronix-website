@@ -1,8 +1,10 @@
 import { useState } from "react"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 import emailjs from "@emailjs/browser"
+import { useTranslation } from 'react-i18next'
 
 export default function Contact() {
+  const { t } = useTranslation()
   const details = {
     officeAddress: "5 Kalman Bialer St., Rehovot, 7666115, Israel",
     factoryAddress: "5 Modi'in St., Lod, 7116002, Israel",
@@ -66,17 +68,16 @@ export default function Contact() {
   return (
     <section className="wrap py-14">
       <header className="text-center max-w-2xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold">Contact BVTronix</h1>
-        <p className="mt-3 text-slate-600">
-          Let’s discuss your project, schedule a site visit, or explore how we can upgrade your equipment.
-        </p>
+        <h1 className="text-3xl md:text-4xl font-bold">{t('contact.title')}</h1>
+        <p className="mt-3 text-slate-600">{t('contact.question')}</p>
+        <p className="mt-3 text-slate-600">{t('contact.subtitle')}</p>
       </header>
 
       <div className="mt-10 grid gap-8 md:grid-cols-2">
         {/* LEFT: FORM */}
         <div className="rounded-xl border bg-white p-6 md:p-8">
-          <h2 className="text-xl font-semibold">Send Us a Message</h2>
-          <p className="text-slate-600 text-sm mt-1">We typically respond within one business day.</p>
+          <h2 className="text-xl font-semibold">{t('contact.form.title')}</h2>
+          <p className="text-slate-600 text-sm mt-1">{t('contact.form.subtitle')}</p>
 
           {notice.text ? (
             <div
@@ -102,20 +103,20 @@ export default function Contact() {
             />
 
             <div>
-              <label className="block text-sm font-medium text-slate-700">Name *</label>
+              <label className="block text-sm font-medium text-slate-700">{t('contact.form.name')} *</label>
               <input
                 name="name"
                 value={form.name}
                 onChange={onChange}
                 className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-400"
-                placeholder="Your full name"
+                placeholder={t('contact.form.full_name')}
                 required
               />
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700">Email *</label>
+                <label className="block text-sm font-medium text-slate-700">{t('contact.form.email')} *</label>
                 <input
                   type="email"
                   name="email"
@@ -127,7 +128,7 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700">Phone</label>
+                <label className="block text-sm font-medium text-slate-700">{t('contact.form.phone')}</label>
                 <input
                   name="phone"
                   value={form.phone}
@@ -139,14 +140,14 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700">Message *</label>
+              <label className="block text-sm font-medium text-slate-700">{t('contact.form.message')} *</label>
               <textarea
                 name="message"
                 value={form.message}
                 onChange={onChange}
                 rows={6}
                 className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-400"
-                placeholder="Tell us about your machine, challenge, timeline, and goals…"
+                placeholder={t('contact.form.message_body')}
                 required
               />
             </div>
@@ -169,19 +170,19 @@ export default function Contact() {
         {/* RIGHT: CONTACT INFO + MAP */}
         <aside className="space-y-6">
           <div className="rounded-xl border bg-white p-6 md:p-8">
-            <h2 className="text-xl font-semibold">Contact Details</h2>
+            <h2 className="text-xl font-semibold">{t('contact.contact_details')}</h2>
             <div className="mt-4 space-y-4 text-slate-700">
               <div className="flex gap-3">
                 <MapPin className="h-5 w-5 mt-0.5 text-slate-600" />
                 <div>
-                  <div className="font-medium text-slate-900">Head Office</div>
+                  <div className="font-medium text-slate-900">{t('contact.company.office')}</div>
                   <div className="text-sm">{details.officeAddress}</div>
                 </div>
               </div>
               <div className="flex gap-3">
                 <MapPin className="h-5 w-5 mt-0.5 text-slate-600" />
                 <div>
-                  <div className="font-medium text-slate-900">Factory</div>
+                  <div className="font-medium text-slate-900">{t('contact.company.factory')}</div>
                   <div className="text-sm">{details.factoryAddress}</div>
                 </div>
               </div>
@@ -194,7 +195,7 @@ export default function Contact() {
                   >
                     {details.phone}
                   </a>
-                  <div className="text-slate-500">Fax: {details.fax}</div>
+                  <div className="text-slate-500">{t('contact.company.fax')}: {details.fax}</div>
                 </div>
               </div>
               <div className="flex gap-3">

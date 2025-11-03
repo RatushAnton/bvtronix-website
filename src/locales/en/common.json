@@ -63,13 +63,18 @@
     },
     "contact": {
         "title": "Contact Us",
+        "contact_details": "Contact Details",
         "question": "Need to upgrade or modify a machine?",
         "subtitle": "Tell us about your machine and your goal - we'll propose a practical, reliable solution.",
         "form": {
+            "title": "Send Us a Message",
+            "subtitle": "We typically respond within one business day.",
             "name": "Name",
+            "full_name": "Your full name",
             "email": "Email",
             "phone": "Phone",
             "message": "Message",
+            "message_body": "Tell us about your machine, challenge, timeline, and goals…",
             "send": "Send Message"
         },
         "messages": {
@@ -82,12 +87,18 @@
             "phone": "Phone",
             "fax": "Fax",
             "email": "Email"
+        },
+        "workday": {
+            "sun_to_thur": "Sunday - Thursday",
+            "fri": "Friday",
+            "sat": "Saturday"
         }
     },
     "footer": {
         "tagline": "Machine Design and Manufacturing Solutions",
         "rights": "All rights reserved.",
-        "quick_links": "Quick Links"
+        "quick_links": "Quick Links",
+        "office_address": "5 Modi'in St., Lod, 7116002"
     }
 
 }

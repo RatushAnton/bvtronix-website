@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
+import { useTranslation } from 'react-i18next'
 
 // 1) Auto-import every image in src/assets/projects (subfolders allowed)
 const files = import.meta.glob("../assets/projects/**/*.{png,jpg,jpeg,webp,gif,svg}", { eager: true })
@@ -26,6 +27,7 @@ function buildGallery() {
 }
 
 export default function Projects() {
+  const { t } = useTranslation()
   const allItems = useMemo(buildGallery, [])
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(allItems.map(i => i.category)))],
@@ -53,9 +55,9 @@ export default function Projects() {
 
   return (
     <section className="wrap py-14">
-      <h1 className="text-3xl md:text-4xl font-bold text-center">Projects</h1>
+      <h1 className="text-3xl md:text-4xl font-bold text-center">{t('projects.title')}</h1>
       <p className="text-center text-slate-600 mt-3">
-        A selection of retrofits, upgrades, and custom mechanisms we’ve delivered.
+        {t('projects.subtitle')}
       </p>
 
       {/* Filters */}

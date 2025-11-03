@@ -43,7 +43,7 @@ export default function Footer() {
           <address className="not-italic space-y-2 text-slate-600">
             <p>
               <span className="font-medium text-slate-800">{t('contact.company.factory')}:</span><br />
-              5 Modi&apos;in St., Lod, 7116002
+              {t('footer.office_address')}
             </p>
             <p>
               <span className="font-medium text-slate-800">{t('contact.company.phone')}:</span>{' '}
