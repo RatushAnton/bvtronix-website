@@ -67,7 +67,10 @@ html, body, #root { height: 100%; }
 
 /* Subtle blueprint corner watermark */
 .bg-watermark-blueprint {
-  position: relative;
+  background-image: url('/bg/texture-blueprint.jpg');
+  background-repeat: repeat;
+  background-size: 900px auto; /* adjust to taste */
+  background-position: center;
 }
 .bg-watermark-blueprint::after {
   content: "";
@@ -85,13 +88,28 @@ html, body, #root { height: 100%; }
   z-index: 0;
 }
 
+/* CTA background (photo + soft blue overlay baked into gradient layer) */
+.bg-cta-blueprint {
+  background-image:
+    linear-gradient(rgba(11,74,144,.07), rgba(11,74,144,.07)),
+    url('/bg/hero-blueprint.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 /* Image presets (swap files anytime) */
-.bg-hero-machinery   { background-image: url("/bg/hero-machinery.jpg"); }
+.bg-hero-machinery   { background-image: url('/bg/hero-machinery.jpg'); }
 .bg-hero-blueprint   { background-image: url("/bg/hero-blueprint.jpg"); }
 .bg-texture-brushed  { background-image: url("/bg/texture-brushed.jpg"); }
 .bg-texture-blueprint{ background-image: url("/bg/texture-blueprint.jpg"); }
 .bg-section-customers{ background-image: url("/bg/section-customers.jpg"); }
-.bg-footer-cad       { background-image: url("/bg/footer-cad.jpg"); }
+.bg-footer-cad {
+  background-image:
+    linear-gradient(rgba(8,28,58,.88), rgba(8,28,58,.88)),
+    url('/bg/footer-cad.jpg');
+  background-size: cover;
+  background-position: center;
+}
 
 /* Shared bg rendering */
 .bg-cover-center { background-size: cover; background-position: center; }

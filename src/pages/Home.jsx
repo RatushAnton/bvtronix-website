@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next'
 import { ClipboardList, DraftingCompass, Cog, Factory, Truck, ShieldCheck } from 'lucide-react'
 import CustomersMarquee from '../components/CustomersMarquee.jsx'
 
-
-export default function Home(){
+export default function Home() {
   const { t } = useTranslation()
+
   return (
     <>
       {/* Hero */}
@@ -41,53 +41,47 @@ export default function Home(){
       </section>
 
       {/* Services teaser */}
-      <section className="relative bg-white bg-watermark-blueprint" >
-        <div className="wrap py-16 section-content">
-          <h2 className="text-2xl md:text-3xl font-bold text-center">{t('home.what_we_do')}</h2>
+      <section className="relative bg-watermark-blueprint">
+        {/* lighten the blueprint so it reads light-gray */}
+        <div className="absolute inset-0 bg-white/80 pointer-events-none" />
+        <div className="wrap relative py-16 section-content">
+          <h2 className="text-2xl md:text-3xl font-bold text-center">
+            {t('home.what_we_do')}
+          </h2>
 
-          {/* data */}
-          {/*
-            Icons:
-            - Project Management -> ClipboardList
-            - Design & Development -> DraftingCompass
-            - Product Engineering -> Cog
-            - Production Support -> Factory
-            - Procurement & Logistics -> Truck
-            - Quality Management -> ShieldCheck
-          */}
           {(() => {
             const services = [
               {
                 title: t('services.items.project_management.title'),
-                desc:  t('services.items.project_management.desc'),
+                desc: t('services.items.project_management.desc'),
                 icon: ClipboardList,
               },
               {
                 title: t('services.items.design_and_development.title'),
-                desc:  t('services.items.design_and_development.desc'),
+                desc: t('services.items.design_and_development.desc'),
                 icon: DraftingCompass,
               },
               {
                 title: t('services.items.product_engineering.title'),
-                desc:  t('services.items.product_engineering.desc'),
+                desc: t('services.items.product_engineering.desc'),
                 icon: Cog,
               },
               {
                 title: t('services.items.production_support.title'),
-                desc:  t('services.items.production_support.desc'),
+                desc: t('services.items.production_support.desc'),
                 icon: Factory,
               },
               {
                 title: t('services.items.procurement_logistics.title'),
-                desc:  t('services.items.procurement_logistics.desc'),
+                desc: t('services.items.procurement_logistics.desc'),
                 icon: Truck,
               },
               {
                 title: t('services.items.quality_management.title'),
-                desc:  t('services.items.quality_management.desc'),
+                desc: t('services.items.quality_management.desc'),
                 icon: ShieldCheck,
               },
-            ];
+            ]
 
             return (
               <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -123,24 +117,24 @@ export default function Home(){
                   </motion.div>
                 ))}
               </div>
-            );
+            )
           })()}
         </div>
       </section>
-      
+
+      {/* Customers strip — brushed metal + soft white veil */}
       <section className="relative bg-texture-brushed bg-cover-center">
         <div className="absolute inset-0 bg-white/85" />
         <div className="wrap py-14 section-content">
           <CustomersMarquee />
         </div>
       </section>
-      
-
 
       {/* CTA */}
-      <section className="relative">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg, rgba(11,74,144,.06), rgba(244,207,40,.04)]" />
-        <div className="wrap py-16 section-content flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <section className="relative bg-cta-blueprint bg-cover-center">
+        {/* gentle dark fade at the very bottom so it melts into the footer */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-b from-transparent to-[rgba(8,28,58,.40)]" />
+        <div className="wrap pt-16 pb-10 section-content flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
             <h3 className="text-xl md:text-2xl font-bold">{t('contact.question')}</h3>
             <p className="text-slate-600 mt-2">{t('contact.subtitle')}</p>
