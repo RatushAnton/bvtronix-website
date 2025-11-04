@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
       <div className="wrap flex items-center justify-between h-16">
-        <BrandLogo size={28} variant="color" />
+        <BrandLogo size={56} variant="color"  a href='nav.home'/>
 
         <button
           className="lg:hidden p-2"

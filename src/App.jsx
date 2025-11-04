@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import useUserWay from "./hooks/useUserWay.js";
 import Layout from './layouts/Layout.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
@@ -6,7 +8,12 @@ import Services from './pages/Services.jsx'
 import Projects from './pages/Projects.jsx'
 import Contact from './pages/Contact.jsx'
 
+
 export default function App(){
+  const { i18n } = useTranslation();
+  const lang = i18n.language?.startsWith("he") ? "he" : "en";
+
+  useUserWay({ account: "rQcJWhMFbI", lang, position: "6", layout: "full" });
   return (
     <Layout>
       <Routes>

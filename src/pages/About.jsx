@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from "react"
 import { useTranslation } from "react-i18next"
 
+
 export default function About() {
   const { t, i18n } = useTranslation()
   const isRTL = i18n.dir() === "rtl"
