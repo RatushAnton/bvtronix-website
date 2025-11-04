@@ -92,7 +92,9 @@
       "factory": "כתובת מפעל",
       "phone": "טלפון",
       "fax": "פקס",
-      "email": "אימייל"
+      "email": "אימייל",
+      "phone_number": "054-2040366",
+      "fax_number": "077-6480641"
     },
     "workday": {
         "sun_to_thur": "א׳ - ה׳",

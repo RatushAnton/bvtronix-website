@@ -47,11 +47,11 @@ export default function Footer() {
             </p>
             <p>
               <span className="font-medium text-slate-800">{t('contact.company.phone')}:</span>{' '}
-              <a href="tel:+972542040366" className="hover:text-slate-900 transition-colors">+972-54-2040366</a>
+              <a href="tel:+972542040366" className="hover:text-slate-900 transition-colors">{t('contact.company.phone_number')}</a>
             </p>
             <p>
               <span className="font-medium text-slate-800">{t('contact.company.fax')}:</span>{' '}
-              <span>+972-77-6480641</span>
+              <span>{t('contact.company.fax_number')}</span>
             </p>
             <p>
               <span className="font-medium text-slate-800">{t('contact.company.email')}:</span>{' '}

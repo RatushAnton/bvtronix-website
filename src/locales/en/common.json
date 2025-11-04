@@ -86,7 +86,9 @@
             "factory": "Factory Address",
             "phone": "Phone",
             "fax": "Fax",
-            "email": "Email"
+            "email": "Email",
+            "phone_number": "+972-54-204-0366",
+            "fax_number": "+972-77-648-0641"
         },
         "workday": {
             "sun_to_thur": "Sunday - Thursday",

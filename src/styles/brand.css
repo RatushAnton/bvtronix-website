@@ -1,0 +1,52 @@
+/*
+    Brand Helpers & decorative backgrounds
+    These are plain CSS utilities that augment Tailwind Classes     
+*/
+
+/* Generic helpers */
+.bg-cover-center { background-size: cover; background-position: center; }
+.bg-fixed-smart { background-attachment: fixed; }
+.section-content { position: relative; z-index: 1; }
+
+/* Soft blueprint-style watermark for light sections */
+.bg-watermark-blueprint {
+    --bp-c1: 0, 0, 0;
+    --bp-a1: 0.04;
+    background-image:
+        radial-gradient(circle at 25% 20%, rgba(var(--bp-c1), var(--bp-a1)) 0 2px, transparent 3px),
+        radial-gradient(circle at 75% 80%, rgba(var(--bp-c1), var(--bp-a1)) 0 2px, transparent 3px);
+    background-size: 120px 120px, 160px 160px;
+    background-blend-mode: multiply;
+}
+
+/* Subtle vignette for hero areas */
+.hero-vignette {
+  position: relative;
+  isolation: isolate;
+}
+.hero-vignette::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(120% 60% at 50% -10%, rgba(0,0,0,0.06), transparent 55%);
+    z-index: 0;
+}
+
+/* Footer surface: blue-ish gradient with texture */
+.footer-surface {
+    background:
+        linear-gradient(180deg, rgba(11,74,144,0.18), rgba(11,74,144,0.26)),
+        radial-gradient(80% 60% at 50% -20%, rgba(255,255,255,0.1), transparent 60%),
+        linear-gradient(180deg, #0b396d, #0a3a6f);
+    color: #e6edf5;
+}
+
+/* Thin translucent border for separators on dark bg */
+.footer-surface .divider {
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Links on dark surface */
+.footer-surface a { color: #cfe2ff; }
+.footer-surface a:hover { color: white; text-decoration: underline; }
