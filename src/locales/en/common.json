@@ -66,6 +66,17 @@
         "contact_details": "Contact Details",
         "question": "Need to upgrade or modify a machine?",
         "subtitle": "Tell us about your machine and your goal - we'll propose a practical, reliable solution.",
+        "details": {
+            "officeAddress": "Kalman Byaler St 5, Rehovot",
+            "factoryAddress": "Modi'in St 5, Lod",
+            "phone": "(+972)54-2040366",
+            "fax": "(+972)77-6480641",
+            "hours": [
+                {"label": "Sunday - Thursday", "value": "08:00 - 18:00"},
+                {"label": "Friday", "value": "08:00 - 12:00"},
+                {"label": "Saturday", "value": "Closed"}
+            ]
+        },
         "form": {
             "title": "Send Us a Message",
             "subtitle": "We typically respond within one business day.",
@@ -82,16 +93,12 @@
             "error": "Something went wrong. Please try again."
         },
         "company":{
+ 
             "office": "Office Address",
             "factory": "Factory Address",
             "phone": "Phone",
             "fax": "Fax",
             "email": "Email"
-        },
-        "workday": {
-            "sun_to_thur": "Sunday - Thursday",
-            "fri": "Friday",
-            "sat": "Saturday"
         }
     },
     "footer": {

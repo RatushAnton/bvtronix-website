@@ -132,18 +132,18 @@ export default function Home() {
 
       {/* CTA */}
       <section className="relative bg-cta-blueprint bg-cover-center">
-        {/* gentle dark fade at the very bottom so it melts into the footer */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-b from-transparent to-[rgba(8,28,58,.40)]" />
-        <div className="wrap pt-16 pb-10 section-content flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        {/* NEW overlay to boost readability in all languages */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/35 to-transparent" />
+        <div className="wrap py-16 section-content flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
-            <h3 className="text-xl md:text-2xl font-bold">{t('contact.question')}</h3>
-            <p className="text-slate-600 mt-2">{t('contact.subtitle')}</p>
+            <h3 className="text-xl md:text-2xl font-bold text-white">{t('contact.question')}</h3>
+            <p className="mt-2 text-slate-200">{t('contact.subtitle')}</p>
           </div>
           <Link
             to="/contact"
-            className="px-5 py-3 rounded-md bg-black text-white text-sm font-medium
-                      transition-colors duration-200 hover:bg-slate-800
-                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 w-max"
+            className="px-5 py-3 rounded-md bg-black/80 text-white text-sm font-medium
+                      transition-colors duration-200 hover:bg-black
+                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200 w-max"
           >
             {t('nav.get_quote')}
           </Link>

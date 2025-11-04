@@ -1,10 +1,13 @@
+// src/pages/About.jsx
 import { useEffect, useMemo, useRef, useState } from "react"
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next"
 
 export default function About() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const isRTL = i18n.dir() === "rtl"
+
   // === Config ===
-  const startYear = 2000 // <-- set your founding year here
+  const startYear = 2000
   const customers = [
     { name: "Applied Materials", src: "/logos/Applied-Materials.svg", alt: "Applied Materials" },
     { name: "Avgol Nonwovens",  src: "/logos/Avgol-Nonwovens.svg",   alt: "Avgol Nonwovens" },
@@ -22,18 +25,18 @@ export default function About() {
   const [years, setYears] = useState(0)
   useEffect(() => {
     let raf = 0
-    const duration = 700 // ms
+    const duration = 700
     const start = performance.now()
     const tick = (now) => {
       const p = Math.min(1, (now - start) / duration)
-      setYears(Math.round(targetYears * (0.2 + 0.8 * p))) // quick ramp
+      setYears(Math.round(targetYears * (0.2 + 0.8 * p)))
       if (p < 1) raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
   }, [targetYears])
 
-  // === Simple one-logo slider (no deps) ===
+  // === Simple one-logo slider ===
   const [idx, setIdx] = useState(0)
   const [paused, setPaused] = useState(false)
   const intervalRef = useRef(null)
@@ -47,32 +50,26 @@ export default function About() {
   }, [paused, customers.length])
 
   return (
-    <section className="wrap py-14">
+    <section className="wrap py-14" dir={i18n.dir()}>
       {/* Title */}
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-10">{t('about.title')}</h1>
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-10">{t("about.title")}</h1>
 
       <div className="grid md:grid-cols-3 gap-10 items-start">
         {/* Left: Company summary */}
         <div className="md:col-span-2 space-y-5 text-slate-700 leading-relaxed">
-          <p>
-            {t('about.paragraph_1')}
-          </p>
-          <p>
-            {t('about.paragraph_2')}
-          </p>
-          <p>
-            {t('about.paragraph_3')}
-          </p>
-          <p>
-            {t('about.paragraph_4')}
-          </p>
+          <p>{t("about.paragraph_1")}</p>
+          <p>{t("about.paragraph_2")}</p>
+          <p>{t("about.paragraph_3")}</p>
+          <p>{t("about.paragraph_4")}</p>
         </div>
 
         {/* Right: Customers slider, years counter, certificate */}
         <aside className="space-y-8">
           {/* Customers */}
           <div>
-            <h2 className="text-xl font-bold mb-4 text-center md:text-left">{t('customers.heading')}</h2>
+            <h2 className={`text-xl font-bold mb-4 ${isRTL ? "text-right md:text-right" : "text-center md:text-left"}`}>
+              {t("customers.heading")}
+            </h2>
 
             {/* Slider viewport */}
             <div
@@ -82,14 +79,11 @@ export default function About() {
             >
               {/* Track */}
               <div
-                className="flex transition-transform duration-500 ease-out"
+                className={`flex transition-transform duration-500 ease-out ${isRTL ? "flex-row-reverse" : ""}`}
                 style={{ transform: `translateX(-${idx * 100}%)` }}
               >
                 {customers.map((c) => (
-                  <div
-                    key={c.name}
-                    className="min-w-full flex items-center justify-center p-8"
-                  >
+                  <div key={c.name} className="min-w-full flex items-center justify-center p-8">
                     <div className="group relative">
                       <img
                         src={c.src}
@@ -123,18 +117,19 @@ export default function About() {
             </div>
           </div>
 
-
           {/* Years in the industry */}
           <div className="text-center">
             <div className="text-5xl font-extrabold text-slate-800">{years}</div>
-            <div className="text-lg font-semibold text-slate-700">{t('about.years_heading')}</div>
-            <div className="text-xs text-slate-500 mt-1">{t('about.since')} {startYear}</div>
+            <div className="text-lg font-semibold text-slate-700">{t("about.years_heading")}</div>
+            <div className="text-xs text-slate-500 mt-1">
+              {t("about.since")} {startYear}
+            </div>
           </div>
 
           {/* Certificate placeholder */}
           <div className="rounded-lg border p-2 bg-white">
             <div className="aspect-[4/3] w-full bg-slate-100 grid place-items-center rounded">
-              <span className="text-slate-500 text-sm">{t('about.certificate_placeholder')}</span>
+              <span className="text-slate-500 text-sm">{t("about.certificate_placeholder")}</span>
             </div>
           </div>
         </aside>
